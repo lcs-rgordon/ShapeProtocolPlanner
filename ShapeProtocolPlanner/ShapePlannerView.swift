@@ -189,29 +189,77 @@ struct ShapePlannerView: View {
 }
 
 struct PlanView: View {
+    
+    let title: String
+    
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
+            VStack {
                 ShapePlannerView()
                     .aspectRatio(1.0/1.0, contentMode: .fit)
                     .frame(height: 750.0)
                 
-                Text("Make a plan")
-                    .font(.title)
-                    .bold()
-                    .padding(.top)
-
-                Text("How many vertices would you need? At what locations?")
-                    .font(.body)
-                    .italic()
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text("Make a plan")
+                            .font(.title)
+                            .bold()
+                            .padding(.top)
+                        
+                        Text("How many vertices would you need? At what locations?")
+                            .font(.body)
+                            .italic()
+                    }
+                    
+                    Spacer()
+                    
+                    Image(title)
+                        .resizable()
+                        .aspectRatio(1.0/1.0, contentMode: .fit)
+                        .frame(width: 100)
+                }
+                .padding()
 
                 Spacer()
             }
-            .navigationTitle("Diamond")
+            .navigationTitle(title)
         }
+    }
+    
+    init(title: String) {
+        self.title = title
     }
 }
 
+
 #Preview {
-    PlanView()
+    PlanView(title: "Square")
+}
+
+#Preview {
+    PlanView(title: "Triangle")
+}
+
+#Preview {
+    PlanView(title: "Right Triangle")
+}
+
+#Preview {
+    PlanView(title: "Diamond")
+}
+
+#Preview {
+    PlanView(title: "Arrow")
+}
+
+#Preview {
+    PlanView(title: "Double-ended Arrow")
+}
+
+#Preview {
+    PlanView(title: "Pentagon")
+}
+
+#Preview {
+    PlanView(title: "Star")
 }
