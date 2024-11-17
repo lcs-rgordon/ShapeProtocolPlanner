@@ -11,7 +11,7 @@ import SwiftUI
 struct ShapeProtocolPlannerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TriangleView()
         }
     }
 }
